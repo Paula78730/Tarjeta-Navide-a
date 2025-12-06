@@ -1,0 +1,75 @@
+/* --- 1. Estilos Base --- */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0; /* Fondo sutil para ver la tarjeta */
+}
+
+.christmas-card-container {
+    /* **Clave:** Contenedor principal que permite posicionar las luces de forma absoluta */
+    position: relative; 
+    display: inline-block;
+}
+
+.card-image {
+    /* Asegura que la imagen se muestre correctamente */
+    display: block;
+    width: 800px; /* Ajusta este ancho según cómo quieras que se vea la tarjeta */
+    height: auto;
+}
+
+/* --- 2. Estilos de las Luces --- */
+
+.light {
+    position: absolute;
+    width: 8px; /* Tamaño de la luz */
+    height: 8px;
+    background: radial-gradient(circle, 
+        #fff6c2 0%,
+        #ffe680 35%,
+        #ffd700 60%, 
+        rgba(255,215,0,0) 85%
+    );
+    border-radius: 50%;
+    /* **CAMBIO AQUÍ**: Aumento del tamaño y la difusión del brillo */
+    box-shadow: 0 0 8px 4px rgba(255, 230, 120, 0.9); 
+    
+    /* Aplica la animación 'blink' */
+    animation: blink 1.1s infinite alternate;  /* Opcional: hacemos la animación un poco más rápida */
+    }
+
+/* --- 4. Posicionamiento Específico de las Luces sobre el Árbol --- */
+/* NOTA: Estos valores (top y left) deben ajustarse con precisión */
+
+/* Luces Altas */
+.light-1 { top: 18%; left: 76%; animation-delay: 0.1s; }
+.light-2 { top: 28%; left: 74%; animation-delay: 0.4s; }
+.light-3 { top: 34%; left: 80%; animation-delay: 0.8s; }
+
+/* Luces Medias */
+.light-4 { top: 44%; left: 74%; animation-delay: 0.2s; }
+.light-5 { top: 52%; left: 82%; animation-delay: 0.6s; }
+.light-6 { top: 58%; left: 70%; animation-delay: 1.0s; }
+
+/* Luces Bajas */
+.light-7 { top: 66%; left: 77%; animation-delay: 0.3s; }
+.light-8 { top: 70%; left: 72%; animation-delay: 0.7s; }
+.light-9 { top: 61%; left: 84%; animation-delay: 1.1s; }
+
+
+/* --- 5. Keyframes de la Animación de Parpadeo --- */
+
+@keyframes blink {
+    0% {
+        opacity: 0.3; /* Estado 'apagado' ahora es más oscuro */
+        transform: scale(0.7);
+    }
+    100% {
+        opacity: 1; /* Estado 'encendido' es completamente visible y brillante */
+        transform: scale(1.4); /* Aumento un poco más la escala para un mayor efecto */
+    }
+}
